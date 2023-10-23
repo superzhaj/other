@@ -3,7 +3,7 @@ import numpy as np
 
 class forward():
 
-    def __init__(self, *arguments, len, obs) -> None:
+    def __init__(self, *arguments, len, obs):
         self.A = arguments[0]                          # 转移矩阵
         self.B = arguments[1]                          # 概率分布矩阵
         self.pi = arguments[2]                         # 初始状态概率
@@ -74,11 +74,8 @@ class viterbi(forward):
 if __name__ == '__main__':
 
     A = np.array([[0.5, 0.2, .3], [0.3, 0.5, 0.2], [0.2, 0.3, 0.5]])
-
     B = np.array([[0.5, 0.5], [0.4, 0.6], [0.7, 0.3]])
-
     pi = np.asarray([0.2, 0.4, 0.4])
-
     T = 3; O = ["R", "W", "R"]
 
     prob1 = forward(A, B, pi, len=T, obs=O).alpha()
