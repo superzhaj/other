@@ -2,28 +2,6 @@
 #include <string>
 #include <vector>
 
-template<typename T>
-T strip(std::string& str)
-{
-	auto ib = str.cbegin();
-	for (; (*ib) == ' '; ++ib) {}
-	auto ie = str.cend() - 1;
-	for (; (*ie) == ' '; --ie) {}
-
-	return T{ib, ie + 1};	
-
-}
-template<typename T>
-T strip(std::string& str, char chr)
-{
-	auto ib = str.cbegin();
-	for (; (*ib) == chr; ++ib) {}
-	auto ie = str.cend() - 1;
-	for (; (*ie) == chr; --ie) {}
-
-	return T{ib, ie + 1};	
-}
-
 template<template<typename> typename T>
 T<std::string> ssplit(std::string& str, char chr)
 {
